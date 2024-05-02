@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
+import { toast } from 'react-toastify';
+ 
 const AddJobPage = ({addJobSubmit}) => {
   const [title, setTitle] = useState("");
   const [type, setType] = useState("Full-Time");
@@ -30,7 +31,7 @@ const AddJobPage = ({addJobSubmit}) => {
       },
     };
     addJobSubmit(newJob);
-
+    toast.success("Job added successfully");
     return navigate("/jobs");
   };
   return (
@@ -159,7 +160,7 @@ const AddJobPage = ({addJobSubmit}) => {
                   className="border rounded w-full py-2 px-3"
                   placeholder="Company Name"
                   value={companyName}
-                  onChange={(e) => setcompanyName(e.target.value)}
+                  onChange={(e) => setCompanyName(e.target.value)}
                 />
               </div>
 
